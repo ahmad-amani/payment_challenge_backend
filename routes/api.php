@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\Transaction\PaymentController;
+use App\Http\Controllers\Api\Transaction\TransactionController;
 use App\Http\Controllers\Api\User\AuthController;
 use App\Http\Controllers\Api\Package\PackageController;
 use App\Http\Controllers\Api\User\UserController;
@@ -22,6 +23,7 @@ Route::middleware('auth:sanctum')->name('user.')->group(function () {
 });
 Route::middleware('auth:sanctum')->name('transaction.')->group(function () {
     Route::post('purchase', [PaymentController::class, 'purchase'])->name('purchase');
+    Route::get('transactions', [TransactionController::class, 'index'])->name('list');
 
 });
 Route::post('register', [AuthController::class, 'register'])->name('user.register');

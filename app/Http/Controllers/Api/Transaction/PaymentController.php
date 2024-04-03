@@ -24,7 +24,7 @@ class PaymentController extends Controller
     public function verify(PaymentServiceInterface $paymentService, Request $request)
     {
         $paymentService->verifyPayment($request->all());
-        // return response()->redirectTo('http://localhost:5174/transactions');
+        return response()->redirectTo(env('FRONTEND_TRANSACTION_URL'));
     }
 
 

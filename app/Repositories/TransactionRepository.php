@@ -50,6 +50,13 @@ class TransactionRepository implements TransactionRepositoryInterface
         return Transaction::findOrFail($id);
     }
 
+    public function userRecent($user_id)
+    {
+        return Transaction::where('user_id', '=', $user_id)->with('package')->orderBy('id', 'desc')->limit(10)->get();
+    }
+
+
+
 }
 
 
